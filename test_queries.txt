@@ -1,0 +1,25 @@
+db.inventory.find({})
+db.inventory.find({"status": "D"})
+db.inventory.find({"status": true})
+db.inventory.find({"status": null})
+db.inventory.find({"status": 16.2225})
+dbb.inventory.find({"status": "D"})
+db.inventory.insert({"status": "D"})
+db.user.find({name:'julio'});
+db.user.find({_id:23113},{name:1,age:1});
+db.user.find({age:{$gte:21}},{name:1,_id:1});
+db.inventory.find({"status": "A"}, {"item": 1, "status": 1, "instock.qty": 1});
+db.user.find({"status": "A", "qty": {"$lt": 30}});
+db.user.find({"status": "A", "qty": {"$gt": 30}});
+db.user.find({"status": "A", "qty": {"$ne": 30}});
+db.user.find({"status": "A", "instock.qty": {"$lt": 30}, "instock.warehouse": "A"},{"item":1,"status":1});
+db.user.find({"$and": [{"status": "A"}, {"qty": {"$ne": 30}}]});
+db.user.find({"status": {"$in": ["A", "D"]}});
+db.user.find({"$or": [{"status": "A"}, {"qty": {"$lte": 30}}]});
+db.user.find({"$or": [{"status": "A"}, {"qty": {"$lte": 30}}, {"size.uom": "cm"}]});
+db.user.find({"status": "A","$or": [{"instock.qty": {"$gt": 50}},{"instock.warehouse": {"$in": ["B"]}}]});
+db.user.find({"status": "A","$or": [{"instock.qty": {"$gt": 50}},{"instock.warehouse": {"$in": ["B"]}, "size.uom": "cm"}]});
+
+db.user.find({"$and": [{"status": 1,"$or": [{"instock.qty": {"$gt": 50}},{"instock.warehouse": {"$in": ["B"]}, "size.uom": "cm", "item": null}]}]},{"item": 1, "status": 1, "instock.qty": 1});
+db.collection.find({"$and": [{"status": "A","$or": [{"instock.qty": {"$gt": 50}},{"instock.warehouse": {"$in": ["B"]},"size.uom": "cm","size.h": 10}]},{"size.w": 15.25}]})
+db.collection.find({"$and": [{"status": "A","$or": [{"instock.qty": {"$gt": 50}},{"instock.warehouse": {"$in": ["B"]},"size.uom": "cm"}]},{"size.w": 15.25}]})

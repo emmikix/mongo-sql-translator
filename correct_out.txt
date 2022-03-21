@@ -1,0 +1,25 @@
+SELECT * FROM inventory;
+SELECT * FROM inventory WHERE status = 'D';
+SELECT * FROM inventory WHERE status = TRUE;
+SELECT * FROM inventory WHERE status = NULL;
+SELECT * FROM inventory WHERE status = 16.2225;
+format of this query is incorrect
+format of this query is incorrect
+SELECT * FROM user WHERE name = 'julio';
+SELECT name, age FROM user WHERE _id = 23113;
+SELECT name, _id FROM user WHERE age >= 21;
+SELECT item, status, instock.qty FROM inventory WHERE status = 'A';
+SELECT * FROM user WHERE status = 'A' AND qty < 30;
+SELECT * FROM user WHERE status = 'A' AND qty > 30;
+SELECT * FROM user WHERE status = 'A' AND qty != 30;
+SELECT item, status FROM user WHERE status = 'A' AND instock.qty < 30 AND instock.warehouse = 'A';
+SELECT * FROM user WHERE status = 'A' AND qty != 30;
+SELECT * FROM user WHERE status IN ['A', 'D'];
+SELECT * FROM user WHERE status = 'A' OR qty <= 30;
+SELECT * FROM user WHERE status = 'A' OR qty <= 30 OR size.uom = 'cm';
+SELECT * FROM user WHERE status = 'A' AND (instock.qty > 50 OR instock.warehouse IN ['B']);
+SELECT * FROM user WHERE status = 'A' AND (instock.qty > 50 OR (instock.warehouse IN ['B'] AND size.uom = 'cm'));
+format of this query is incorrect
+SELECT item, status, instock.qty FROM user WHERE (status = 1 AND (instock.qty > 50 OR (instock.warehouse IN ['B'] AND size.uom = 'cm' AND item = NULL)));
+SELECT * FROM collection WHERE (status = 'A' AND (instock.qty > 50 OR (instock.warehouse IN ['B'] AND size.uom = 'cm' AND size.h = 10))) AND size.w = 15.25;
+SELECT * FROM collection WHERE (status = 'A' AND (instock.qty > 50 OR (instock.warehouse IN ['B'] AND size.uom = 'cm'))) AND size.w = 15.25;
